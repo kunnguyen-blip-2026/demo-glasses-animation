@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes photochromicAnimation {
+
+            0%,
+            100% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes pinkSwipe {
+            0% {
+                left: -80%;
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            85% {
+                left: 120%;
+                opacity: 0.9;
+
+            }
+
+            90% {
+                opacity: 0;
+            }
+
+            100% {
+                left: 120%;
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeInAfter {
+
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+
+
+        .relative {
+            position: relative;
+        }
+
+        .img-responsive {
+            display: block;
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+        }
+
+        .absolute {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translate(0, -50%);
+            -ms-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+        }
+
+        .photochromic-animation {
+            opacity: 0;
+            animation: photochromicAnimation 6s ease-in-out infinite;
+        }
+
+        .eyeqpluswithzenniidguard-sunglass-solid-brown {
+            background: #805a50;
+            opacity: .8;
+        }
+
+        .tint-overlay___3aEqU {
+            position: absolute;
+            left: 1px;
+            top: 1px;
+            width: calc(100% - 2px);
+            height: calc(100% - 2px);
+        }
+
+        .frame-image-wrapper___3olUZ {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        img {
+            vertical-align: middle;
+            border-style: none;
+        }
+
+        .swipe-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -80%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(115deg, rgba(255, 182, 193, 0) 0%, rgba(255, 182, 193, 0.15) 30%, rgba(255, 80, 125, 0.5) 50%, rgba(255, 182, 193, 0.15) 70%, rgba(255, 182, 193, 0) 100%);
+            filter: blur(12px);
+            transform: skewX(-25deg);
+            animation: pinkSwipe 3s cubic-bezier(.65, 0, .35, 1) infinite;
+            animation-delay: 1.5s;
+        }
+
+        .swipe-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient(circle at 50% 0%, rgba(255, 80, 125, 0.5), transparent 70%);
+            pointer-events: none;
+            opacity: 0;
+            animation: fadeInAfter .5s ease-in 2s forwards;
+        }
+
+        .swipe-overlay {
+            overflow: hidden;
+        }
+
+        .middle-translate {
+            top: 50%;
+            -webkit-transform: translate(0, -50%);
+            -ms-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+        }
+
+        .wrapper {
+            width: 300px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="frame-image-wrapper___3olUZ">
+            <div class="relative frame-image-container___F9XW7"><img alt="Lens arm image through lens"
+                    class="img-responsive"
+                    src="https://static.zennioptical.com/production/products/general/P1/38/P138611_ls441_frame.png">
+                <div
+                    class="eyeqpluswithzenniidguard-sunglass-solid-brown photochromic-animation tint-overlay___3aEqU">
+                </div>
+                <div class="swipe-overlay tint-overlay___3aEqU"></div><img alt="Lens frame front view"
+                    class="absolute img-responsive middle-translate"
+                    src="https://static.zennioptical.com/production/products/general/P1/38/P138611_ls441_frame.png">
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
